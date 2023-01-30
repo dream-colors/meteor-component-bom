@@ -1,0 +1,6 @@
+# 项目排除路径
+/meteor-component-starter-banner/target/
+/meteor-component-starter-biz-operatelog/target/
+/meteor-component-starter-ip/target/
+/meteor-component-starter-mybatis/target/
+/meteor-component-starter-web/target/

@@ -1,0 +1,2 @@
+org.meteor.component.mybatis.mybatis.config.MeteorMybatisAutoConfiguration
+org.meteor.component.mybatis.datasource.config.MeteorDataSourceAutoConfiguration
