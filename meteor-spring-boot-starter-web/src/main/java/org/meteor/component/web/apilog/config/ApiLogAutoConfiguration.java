@@ -5,7 +5,6 @@ import org.meteor.component.web.apilog.core.service.ApiLogService;
 import org.meteor.component.common.constant.WebFilterOrder;
 import org.meteor.component.web.config.MeteorWebAutoConfiguration;
 import org.meteor.component.web.config.WebProperties;
-import org.meteor.infra.client.logger.ApiLogApi;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -23,10 +22,6 @@ import javax.servlet.Filter;
 @AutoConfigureAfter(MeteorWebAutoConfiguration.class)
 public class ApiLogAutoConfiguration {
 
-    @Bean
-    public ApiLogService apiLogService(ApiLogApi apiLogApi) {
-        return new ApiLogServiceImpl(apiLogApi);
-    }
 
     /**
      * 创建 ApiAccessLogFilter Bean，记录 API 请求日志

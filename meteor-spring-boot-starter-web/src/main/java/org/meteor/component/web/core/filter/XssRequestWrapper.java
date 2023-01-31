@@ -2,9 +2,9 @@ package org.meteor.component.web.core.filter;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.IoUtil;
-import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ReflectUtil;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HTMLFilter;
 import org.meteor.component.common.util.servlet.ServletUtils;
 
@@ -21,10 +21,8 @@ import java.util.Map;
 /**
  * Xss 请求 Wrapper
  *
- * @author 钟宗兵
- * @date 2023/1/15
- * @since 1.0
- **/
+ * @author 芋道源码
+ */
 public class XssRequestWrapper extends HttpServletRequestWrapper {
 
     /**
@@ -42,7 +40,7 @@ public class XssRequestWrapper extends HttpServletRequestWrapper {
     }
 
     private static String filterXss(String content) {
-        if (CharSequenceUtil.isEmpty(content)) {
+        if (StrUtil.isEmpty(content)) {
             return content;
         }
         return HTML_FILTER.get().filter(content);
@@ -66,7 +64,6 @@ public class XssRequestWrapper extends HttpServletRequestWrapper {
         String content = IoUtil.readUtf8(super.getInputStream());
         content = filterXss(content);
         final ByteArrayInputStream newInputStream = new ByteArrayInputStream(content.getBytes());
-        HTML_FILTER.remove();
         // 返回 ServletInputStream
         return new ServletInputStream() {
 
@@ -86,9 +83,7 @@ public class XssRequestWrapper extends HttpServletRequestWrapper {
             }
 
             @Override
-            public void setReadListener(ReadListener readListener) {
-                // pass
-            }
+            public void setReadListener(ReadListener readListener) {}
 
         };
     }
