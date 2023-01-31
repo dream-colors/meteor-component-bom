@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.meteor.cola</groupId>
+        <artifactId>meteor-component-bom</artifactId>
+        <version>1.0.0-snapshot</version>
+    </parent>
+    
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>meteor-spring-boot-starter-log</artifactId>
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>业务组件：日志服务</description>
+    <url>https://github.com/dream-colors/meteor-cola-cloud.git</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.meteor.cola</groupId>
+            <artifactId>meteor-component-common</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>provided</scope> <!-- 设置为 provided，只有工具类需要使用到 -->
+        </dependency>
+    </dependencies>
+
+</project>

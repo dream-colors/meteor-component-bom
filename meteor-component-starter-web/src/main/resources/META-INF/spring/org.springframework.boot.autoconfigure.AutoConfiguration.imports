@@ -1,4 +1,0 @@
-org.meteor.component.web.apilog.config.ApiLogRpcAutoConfiguration
-org.meteor.component.web.apilog.config.ApiLogAutoConfiguration
-org.meteor.component.web.swagger.config.MeteorSwaggerAutoConfiguration
-org.meteor.component.web.config.MeteorWebAutoConfiguration

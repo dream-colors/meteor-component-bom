@@ -12,15 +12,15 @@
     <url>https://github.com/dream-colors/meteor-cola-cloud.git</url>
 
     <modules>
+        <module>meteor-component-dependencies</module>
         <module>meteor-component-exception</module>
         <module>meteor-component-common</module>
-        <module>meteor-component-starter-banner</module>
-        <module>meteor-component-starter-web</module>
-        <module>meteor-component-starter-ip</module>
-        <module>meteor-component-starter-mybatis</module>
-        <module>meteor-component-starter-biz-operatelog</module>
-        <module>meteor-component-starter-rpc</module>
-        <module>meteor-component-dependencies</module>
+        <module>meteor-spring-boot-starter-banner</module>
+        <module>meteor-spring-boot-starter-web</module>
+        <module>meteor-spring-boot-starter-ip</module>
+        <module>meteor-spring-boot-starter-mybatis</module>
+        <module>meteor-spring-boot-starter-log</module>
+        <module>meteor-spring-boot-starter-rpc</module>
     </modules>
 
     <properties>
@@ -40,6 +40,15 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- 外部版本依赖控制 -->
+            <dependency>
+                <groupId>org.meteor.cola</groupId>
+                <artifactId>meteor-component-dependencies</artifactId>
+                <version>${component.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- 内部模块版本控制 -->
             <dependency>
                 <groupId>org.meteor.cola</groupId>
@@ -53,42 +62,33 @@
             </dependency>
             <dependency>
                 <groupId>org.meteor.cola</groupId>
-                <artifactId>meteor-component-starter-banner</artifactId>
+                <artifactId>meteor-spring-boot-starter-banner</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.meteor.cola</groupId>
-                <artifactId>meteor-component-starter-web</artifactId>
+                <artifactId>meteor-spring-boot-starter-web</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.meteor.cola</groupId>
-                <artifactId>meteor-component-starter-ip</artifactId>
+                <artifactId>meteor-spring-boot-starter-ip</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.meteor.cola</groupId>
-                <artifactId>meteor-component-starter-mybatis</artifactId>
+                <artifactId>meteor-spring-boot-starter-mybatis</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.meteor.cola</groupId>
-                <artifactId>meteor-component-starter-biz-operatelog</artifactId>
+                <artifactId>meteor-spring-boot-starter-log</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.meteor.cola</groupId>
-                <artifactId>meteor-component-starter-rpc</artifactId>
+                <artifactId>meteor-spring-boot-starter-rpc</artifactId>
                 <version>${component.version}</version>
-            </dependency>
-
-            <!-- 外部版本依赖控制 -->
-            <dependency>
-                <groupId>org.meteor.cola</groupId>
-                <artifactId>meteor-component-dependencies</artifactId>
-                <version>${component.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
