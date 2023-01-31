@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.meteor.cola</groupId>
+    <groupId>org.meteor.component</groupId>
     <artifactId>meteor-component-bom</artifactId>
     <packaging>pom</packaging>
     <name>${artifactId}</name>
@@ -42,7 +42,7 @@
         <dependencies>
             <!-- 外部版本依赖控制 -->
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-component-dependencies</artifactId>
                 <version>${component.version}</version>
                 <type>pom</type>
@@ -51,42 +51,42 @@
 
             <!-- 内部模块版本控制 -->
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-component-exception</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-component-common</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-spring-boot-starter-banner</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-spring-boot-starter-web</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-spring-boot-starter-ip</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-spring-boot-starter-mybatis</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-spring-boot-starter-log</artifactId>
                 <version>${component.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.meteor.cola</groupId>
+                <groupId>org.meteor.component</groupId>
                 <artifactId>meteor-spring-boot-starter-rpc</artifactId>
                 <version>${component.version}</version>
             </dependency>

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.meteor.cola</groupId>
+        <groupId>org.meteor.component</groupId>
         <artifactId>meteor-component-bom</artifactId>
         <version>1.0.0-snapshot</version>
     </parent>
@@ -18,7 +18,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.meteor.cola</groupId>
+            <groupId>org.meteor.component</groupId>
             <artifactId>meteor-component-common</artifactId>
             <scope>provided</scope>
         </dependency>
