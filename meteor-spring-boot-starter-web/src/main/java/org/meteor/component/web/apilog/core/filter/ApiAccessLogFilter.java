@@ -8,7 +8,7 @@ import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.meteor.component.common.enums.SysErrorCodeEnum;
 import org.meteor.component.common.monitor.TracerUtils;
-import org.meteor.component.common.pojo.Response;
+import org.meteor.component.common.pojo.response.Response;
 import org.meteor.component.common.util.json.JacksonUtil;
 import org.meteor.component.common.util.servlet.ServletUtils;
 import org.meteor.component.web.apilog.core.ApiAccessLog;

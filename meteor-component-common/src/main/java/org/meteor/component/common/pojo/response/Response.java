@@ -1,6 +1,7 @@
-package org.meteor.component.common.pojo;
+package org.meteor.component.common.pojo.response;
 
 import org.meteor.component.common.enums.SysErrorCodeEnum;
+import org.meteor.component.common.pojo.command.Dto;
 import org.meteor.component.exception.ErrorCode;
 import org.meteor.component.exception.ServiceException;
 
@@ -55,13 +56,13 @@ public class Response extends Dto {
         throw new ServiceException(code, message);
     }
 
-    public static Response buildSuccess() {
+    public static Response success() {
         Response response = new Response();
         response.setSuccess(true);
         return response;
     }
 
-    public static Response buildFailure(SysErrorCodeEnum errorCode) {
+    public static Response failure(SysErrorCodeEnum errorCode) {
         Response response = new Response();
         response.setSuccess(false);
         response.setCode(errorCode.getCode());
@@ -69,7 +70,7 @@ public class Response extends Dto {
         return response;
     }
 
-    public static Response buildFailure(ServiceException serviceException) {
+    public static Response failure(ServiceException serviceException) {
         Response response = new Response();
         response.setSuccess(false);
         response.setCode(serviceException.getCode());
@@ -77,7 +78,7 @@ public class Response extends Dto {
         return response;
     }
 
-    public static Response buildFailure(ErrorCode errorCode) {
+    public static Response failure(ErrorCode errorCode) {
         Response response = new Response();
         response.setSuccess(false);
         response.setCode(errorCode.getCode());
@@ -85,7 +86,7 @@ public class Response extends Dto {
         return response;
     }
 
-    public static Response buildFailure(int code, String message) {
+    public static Response failure(int code, String message) {
         Response response = new Response();
         response.setSuccess(false);
         response.setCode(code);

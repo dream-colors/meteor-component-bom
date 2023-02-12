@@ -1,4 +1,4 @@
-package org.meteor.component.common.pojo;
+package org.meteor.component.common.pojo.response;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -73,13 +73,14 @@ public class PageResponse<T> extends Response {
         return !isEmpty();
     }
 
-    public static PageResponse<Void> buildSuccess() {
+
+    public static PageResponse<Void> success() {
         PageResponse<Void> response = new PageResponse<>();
         response.setSuccess(true);
         return response;
     }
 
-    public static PageResponse<Void> buildFailure(int errCode, String errMessage) {
+    public static PageResponse<Void> failure(int errCode, String errMessage) {
         PageResponse<Void> response = new PageResponse<>();
         response.setSuccess(false);
         response.setCode(errCode);

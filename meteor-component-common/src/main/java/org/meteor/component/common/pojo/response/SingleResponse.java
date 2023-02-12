@@ -1,4 +1,4 @@
-package org.meteor.component.common.pojo;
+package org.meteor.component.common.pojo.response;
 
 /**
  * @author 钟宗兵
@@ -19,13 +19,13 @@ public class SingleResponse<T> extends Response {
         this.data = data;
     }
 
-    public static SingleResponse<Void> buildSuccess() {
+    public static SingleResponse<Void> success() {
         SingleResponse<Void> response = new SingleResponse<>();
         response.setSuccess(true);
         return response;
     }
 
-    public static SingleResponse<Void> buildFailure(int errCode, String errMessage) {
+    public static SingleResponse<Void> failure(int errCode, String errMessage) {
         SingleResponse<Void> response = new SingleResponse<>();
         response.setSuccess(false);
         response.setCode(errCode);

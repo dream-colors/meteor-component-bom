@@ -4,7 +4,7 @@ import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import org.meteor.component.common.constant.RpcConstants;
 import org.meteor.component.common.enums.UserTypeEnum;
-import org.meteor.component.common.pojo.Response;
+import org.meteor.component.common.pojo.response.Response;
 import org.meteor.component.web.config.WebProperties;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;

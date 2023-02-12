@@ -1,4 +1,4 @@
-package org.meteor.component.common.pojo;
+package org.meteor.component.common.pojo.command;
 
 import java.io.Serializable;
 

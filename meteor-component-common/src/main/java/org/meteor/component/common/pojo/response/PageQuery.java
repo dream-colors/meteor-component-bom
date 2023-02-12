@@ -1,4 +1,6 @@
-package org.meteor.component.common.pojo;
+package org.meteor.component.common.pojo.response;
+
+import org.meteor.component.common.pojo.command.Query;
 
 /**
  * @author 钟宗兵

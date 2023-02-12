@@ -1,8 +1,8 @@
 package org.meteor.component.web.core.handler;
 
 import org.meteor.component.web.apilog.core.filter.ApiAccessLogFilter;
-import org.meteor.component.common.pojo.Response;
-import org.meteor.component.common.pojo.SingleResponse;
+import org.meteor.component.common.pojo.response.Response;
+import org.meteor.component.common.pojo.response.SingleResponse;
 import org.meteor.component.web.core.util.WebFrameworkUtils;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -49,8 +49,8 @@ public class GlobalResponseBodyHandler implements ResponseBodyAdvice<Object> {
         // 记录 Controller 结果
         HttpServletRequest servletRequest = ((ServletServerHttpRequest) request).getServletRequest();
         if (body == null) {
-            WebFrameworkUtils.setCommonResult(servletRequest, Response.buildSuccess());
-            return Response.buildSuccess();
+            WebFrameworkUtils.setCommonResult(servletRequest, Response.success());
+            return Response.success();
         }
         if (body instanceof Response) {
             WebFrameworkUtils.setCommonResult(servletRequest, (Response) body);

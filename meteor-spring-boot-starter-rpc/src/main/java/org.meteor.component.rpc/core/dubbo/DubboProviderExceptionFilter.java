@@ -6,7 +6,7 @@ import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
 import org.apache.dubbo.rpc.service.GenericService;
-import org.meteor.component.common.pojo.Response;
+import org.meteor.component.common.pojo.response.Response;
 import org.meteor.component.exception.ServerException;
 import org.meteor.component.exception.ServiceException;
 
@@ -48,7 +48,7 @@ public class DubboProviderExceptionFilter implements Filter, Filter.Listener {
                 // 2.1 如果是 ServiceException 异常，并且返回参数类型是 CommonResult 的情况，则将转换成 CommonResult 返回
                 if (isReturnCommonResult(invocation) && exception instanceof ServiceException) {
                     appResponse.setException(null); // 一定要清空异常
-                    appResponse.setValue(Response.buildFailure((ServiceException) exception));
+                    appResponse.setValue(Response.failure((ServiceException) exception));
                 // 2.2 如果是 GlobalException 全局异常，则直接抛出
                 } else {
                     // TODO 优化点：尝试修改成 RpcException

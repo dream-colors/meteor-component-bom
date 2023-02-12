@@ -1,4 +1,4 @@
-package org.meteor.component.common.pojo;
+package org.meteor.component.common.pojo.response;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,13 +38,13 @@ public class MultiResponse<T> extends Response {
         return !isEmpty();
     }
 
-    public static MultiResponse<Void> buildSuccess() {
+    public static MultiResponse<Void> success() {
         MultiResponse<Void> response = new MultiResponse<>();
         response.setSuccess(true);
         return response;
     }
 
-    public static MultiResponse<Void> buildFailure(int errCode, String errMessage) {
+    public static MultiResponse<Void> failure(int errCode, String errMessage) {
         MultiResponse<Void> response = new MultiResponse<>();
         response.setSuccess(false);
         response.setCode(errCode);

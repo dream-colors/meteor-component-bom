@@ -6,7 +6,7 @@ import cn.hutool.extra.servlet.ServletUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.meteor.component.common.monitor.TracerUtils;
-import org.meteor.component.common.pojo.Response;
+import org.meteor.component.common.pojo.response.Response;
 import org.meteor.component.common.util.json.JacksonUtil;
 import org.meteor.component.common.util.servlet.ServletUtils;
 import org.meteor.component.exception.ServiceException;
@@ -107,7 +107,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = MissingServletRequestParameterException.class)
     public Response missingServletRequestParameterExceptionHandler(MissingServletRequestParameterException ex) {
         log.warn("[missingServletRequestParameterExceptionHandler]", ex);
-        return Response.buildFailure(BAD_REQUEST.getCode(), String.format("请求参数缺失:%s", ex.getParameterName()));
+        return Response.failure(BAD_REQUEST.getCode(), String.format("请求参数缺失:%s", ex.getParameterName()));
     }
 
     /**
@@ -118,7 +118,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public Response methodArgumentTypeMismatchExceptionHandler(MethodArgumentTypeMismatchException ex) {
         log.warn("[missingServletRequestParameterExceptionHandler]", ex);
-        return Response.buildFailure(BAD_REQUEST.getCode(), String.format("请求参数类型错误:%s", ex.getMessage()));
+        return Response.failure(BAD_REQUEST.getCode(), String.format("请求参数类型错误:%s", ex.getMessage()));
     }
 
     /**
@@ -130,7 +130,7 @@ public class GlobalExceptionHandler {
         FieldError fieldError = ex.getBindingResult().getFieldError();
         // 断言，避免告警
         assert fieldError != null;
-        return Response.buildFailure(BAD_REQUEST.getCode(), String.format(ARGUMENT_ERROR_TIP, fieldError.getDefaultMessage()));
+        return Response.failure(BAD_REQUEST.getCode(), String.format(ARGUMENT_ERROR_TIP, fieldError.getDefaultMessage()));
     }
 
     /**
@@ -142,7 +142,7 @@ public class GlobalExceptionHandler {
         FieldError fieldError = ex.getFieldError();
         // 断言，避免告警
         assert fieldError != null;
-        return Response.buildFailure(BAD_REQUEST.getCode(), String.format(ARGUMENT_ERROR_TIP, fieldError.getDefaultMessage()));
+        return Response.failure(BAD_REQUEST.getCode(), String.format(ARGUMENT_ERROR_TIP, fieldError.getDefaultMessage()));
     }
 
     /**
@@ -152,7 +152,7 @@ public class GlobalExceptionHandler {
     public Response constraintViolationExceptionHandler(ConstraintViolationException ex) {
         log.warn("[constraintViolationExceptionHandler]", ex);
         ConstraintViolation<?> constraintViolation = ex.getConstraintViolations().iterator().next();
-        return Response.buildFailure(BAD_REQUEST.getCode(), String.format(ARGUMENT_ERROR_TIP, constraintViolation.getMessage()));
+        return Response.failure(BAD_REQUEST.getCode(), String.format(ARGUMENT_ERROR_TIP, constraintViolation.getMessage()));
     }
 
     /**
@@ -162,7 +162,7 @@ public class GlobalExceptionHandler {
     public Response validationException(ValidationException ex) {
         log.warn("[constraintViolationExceptionHandler]", ex);
         // 无法拼接明细的错误信息，因为 Dubbo Consumer 抛出 ValidationException 异常时，是直接的字符串信息，且人类不可读
-        return Response.buildFailure(BAD_REQUEST);
+        return Response.failure(BAD_REQUEST);
     }
 
     /**
@@ -175,7 +175,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoHandlerFoundException.class)
     public Response noHandlerFoundExceptionHandler(NoHandlerFoundException ex) {
         log.warn("[noHandlerFoundExceptionHandler]", ex);
-        return Response.buildFailure(NOT_FOUND.getCode(), String.format("请求地址不存在:%s", ex.getRequestURL()));
+        return Response.failure(NOT_FOUND.getCode(), String.format("请求地址不存在:%s", ex.getRequestURL()));
     }
 
     /**
@@ -186,7 +186,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public Response httpRequestMethodNotSupportedExceptionHandler(HttpRequestMethodNotSupportedException ex) {
         log.warn("[httpRequestMethodNotSupportedExceptionHandler]", ex);
-        return Response.buildFailure(METHOD_NOT_ALLOWED.getCode(), String.format("请求方法不正确:%s", ex.getMessage()));
+        return Response.failure(METHOD_NOT_ALLOWED.getCode(), String.format("请求方法不正确:%s", ex.getMessage()));
     }
 
     /**
@@ -198,7 +198,7 @@ public class GlobalExceptionHandler {
     public Response accessDeniedExceptionHandler(HttpServletRequest req, AccessDeniedException ex) {
         log.warn("[accessDeniedExceptionHandler][userId({}) 无法访问 url({})]", WebFrameworkUtils.getLoginUserId(req),
                 req.getRequestURL(), ex);
-        return Response.buildFailure(FORBIDDEN);
+        return Response.failure(FORBIDDEN);
     }
 
     /**
@@ -209,7 +209,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = ServiceException.class)
     public Response serviceExceptionHandler(ServiceException ex) {
         log.info("[serviceExceptionHandler]", ex);
-        return Response.buildFailure(ex.getCode(), ex.getMessage());
+        return Response.failure(ex.getCode(), ex.getMessage());
     }
 
     /**
@@ -221,7 +221,7 @@ public class GlobalExceptionHandler {
         // 插入异常日志
         this.createExceptionLog(req, ex);
         // 返回 ERROR CommonResult
-        return Response.buildFailure(INTERNAL_SERVER_ERROR.getCode(), INTERNAL_SERVER_ERROR.getMsg());
+        return Response.failure(INTERNAL_SERVER_ERROR.getCode(), INTERNAL_SERVER_ERROR.getMsg());
     }
 
     private void createExceptionLog(HttpServletRequest req, Throwable e) {

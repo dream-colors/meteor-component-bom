@@ -1,7 +1,7 @@
 package org.meteor.component.web.core.filter;
 
 import cn.hutool.core.util.StrUtil;
-import org.meteor.component.common.pojo.Response;
+import org.meteor.component.common.pojo.response.Response;
 import org.meteor.component.common.util.servlet.ServletUtils;
 import org.meteor.component.web.core.util.WebFrameworkUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -30,7 +30,7 @@ public class DemoFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) {
         // 直接返回 DEMO_DENY 的结果。即，请求不继续
-        ServletUtils.writeJSON(response, Response.buildFailure(DEMO_DENY));
+        ServletUtils.writeJSON(response, Response.failure(DEMO_DENY));
     }
 
 }
